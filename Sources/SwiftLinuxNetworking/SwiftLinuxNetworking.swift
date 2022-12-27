@@ -1,3 +1,4 @@
+public var versionOfSwiftLinuxnetworking = 0.1
 import Foundation
 #if canImport(FoundationNetworking)
 import FoundationNetworking
