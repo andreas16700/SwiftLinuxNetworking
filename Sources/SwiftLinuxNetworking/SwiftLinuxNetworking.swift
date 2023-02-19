@@ -3,8 +3,8 @@ import Foundation
 #if canImport(FoundationNetworking)
 import FoundationNetworking
 #endif
-let decoder = JSONDecoder()
-let encoder = JSONEncoder()
+//let decoder = JSONDecoder()
+//let encoder = JSONEncoder()
 /// Defines the possible errors
 public enum URLSessionAsyncErrors: Error {
 	case invalidUrlResponse, missingResponseData
@@ -65,10 +65,10 @@ extension CodingKey{
 		}
 	}
 }
-func jsonString(data: Data)->String?{
+public func jsonString(data: Data)->String?{
 	return String(data: data, encoding: .utf8)
 }
-func reportError(title: String, _ error: Error, jsonData: Data? = nil){
+public func reportError(title: String, _ error: Error, jsonData: Data? = nil){
 	var msg: String?
 	if let dec = error as? DecodingError{
 		var title: String
