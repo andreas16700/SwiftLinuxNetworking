@@ -68,6 +68,9 @@ extension CodingKey{
 public func jsonString(data: Data)->String?{
 	return String(data: data, encoding: .utf8)
 }
+public func reportError(_ msg: String){
+	print(msg)
+}
 public func reportError(title: String, _ error: Error, jsonData: Data? = nil){
 	var msg: String?
 	if let dec = error as? DecodingError{
