@@ -25,7 +25,7 @@ public extension URLSession {
 	///     let (data, response) = try await URLSession.shared.asyncData(from: url)
 	func asyncData(from url: URL) async throws -> (Data, URLResponse) {
 		return try await withCheckedThrowingContinuation { continuation in
-			let task = URLSession.shared.dataTask(with: url) { data, response, error in
+			let task = self.dataTask(with: url) { data, response, error in
 				fulfillContinuationFromCompletionHandler(continuation: continuation, data: data, response: response, error: error)
 			}
 			task.resume()
@@ -33,7 +33,7 @@ public extension URLSession {
 	}
 	func asyncData(with request: URLRequest)async throws -> (Data, URLResponse){
 		return try await withCheckedThrowingContinuation { continuation in
-			let task = URLSession.shared.dataTask(with: request) { data, response, error in
+			let task = self.dataTask(with: request) { data, response, error in
 				fulfillContinuationFromCompletionHandler(continuation: continuation, data: data, response: response, error: error)
 			}
 			task.resume()
